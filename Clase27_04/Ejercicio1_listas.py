@@ -12,16 +12,16 @@ while (contador < 10):
 print(f"Núeros introducidos: {array}.")
 
 suma = 0
-for s in array:
-    suma += s #se van acumulando uno encima de otro
+for elemento in array:
+    suma += elemento #se van acumulando uno encima de otro
 print(f"Suma total: {suma}.")
 
 media = suma / len(array)
 print (f"La media es: {media}.")
 
 pares = 0
-for p in array:
-    if (p%2 == 0):
+for elemento in array:
+    if (elemento%2 == 0):
         pares += 1
 print(f"{pares} números pares.")
 
