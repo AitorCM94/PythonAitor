@@ -36,18 +36,22 @@ else:
     print(f"La letra '{letra}' se repite {contador} veces.")
 """
 #Borja:
-frase = input("Escribe una frase: ")
+frase = input("Escribe la frase: ")
 letra = "" #Variable vacía
-#Primero pregunta por la variable letra y le pone una condición, que sea igual a uno para poder seguir.
+#Primero pregunta por la variable letra y le pone dos condiciones para poder seguir: que letra sea igual a uno y no sea un dígito.
 while (len(letra) != 1):
     letra = input("Escribe una letra: ")
     if (len(letra) != 1):
         print(f"{letra}, no es válido.")
+        letra = "" #Vaciamos la variable.
+    if (letra.isdigit() == True):
+        print(f"{letra}, no es válido.")
+        letra = ""
 #El resto es = que en el mio:
 index = 0
 contador= 0
 while (index < len(frase)):
-    if (frase[index] == letra):
+    if (frase[index].lower() == letra.lower()):
         contador += 1
     index += 1
 print(f"La letra '{letra}' se repite {contador} veces.")
