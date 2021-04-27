@@ -19,7 +19,7 @@ print(suma)
 media = suma / len(array)
 print (media)
 
-#Pintar cuantos pares hay
+#Pintar cuantos pares hay POR HACER
 pares = 0
 for p in array:
     pares = p / 2
