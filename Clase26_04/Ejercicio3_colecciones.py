@@ -12,3 +12,5 @@ for n in mult:
 #Ejemplo2
 for n in range (1,11,1):
     print(f"{num} x {n} = {num*n}")
+
+#ACABAR DE COMPLETAR AMB EL DEL REPOSITORI
