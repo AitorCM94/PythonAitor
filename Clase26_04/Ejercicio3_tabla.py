@@ -19,6 +19,6 @@ numFor = input("La tabla del: ")
 
 if(numFor.isdigit() == True):
     for numero in range (11):
-        print(f"{numFor} x {numero:2.0f} = {numFor*numero:2.0f}")
+        print(f"{numFor} x {numero:2.0f} = {int(numFor)*numero:2.0f}") # En el momento de hacer la operación pasa el numero de alfanumerico a número.
 else:
     print(f"{numFor}, no es un número.")

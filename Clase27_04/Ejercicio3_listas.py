@@ -24,5 +24,3 @@ for elemento in array:
     if (elemento%2 == 0):
         pares += 1
 print(f"{pares} números pares.")
-
-
