@@ -1,8 +1,11 @@
 import json
 
-# Pasar un objeto a JSON_
 citricos = ["naranja", "limón", "pomelo", "lima"]
-listaJSON = json.dumps(citricos)
 
-print(citricos)
+#Pasar un objeto a JSON
+listaJSON = json.dumps(citricos)
 print(listaJSON)
+
+#Pasar de JSON a objeto
+lista = json.loads(listaJSON)
+print(lista[2]) #Nos permite tratarlo otra vez como a un objeto.
