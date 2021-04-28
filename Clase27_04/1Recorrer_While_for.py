@@ -18,7 +18,7 @@ for index in range(len(texto)):
     print(texto[index])
 
 
-#RECORRER ARRAYS
+#RECORRER LISTAS
 pares = ["casa", "coche", "moto", "perro", "luz", "cama", "sol", "guitarra", "pastel"]
 #Posicion: 0       1       2        3       4       5      6         7          8
 #Numero de elementos: 9. -> len()
