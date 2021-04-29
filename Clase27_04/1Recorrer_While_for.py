@@ -25,7 +25,7 @@ pares = ["casa", "coche", "moto", "perro", "luz", "cama", "sol", "guitarra", "pa
 
 #Con el for:
 for elementos in pares: #Recorremos la array y nos pinta el valor de cada uno de sus elementos.
-    print(elementos) #Interessant: si poso pares es pinta la variable pares completa per cada element que la conforma.
+    print(elementos) #Si poso pares es pinta la variable pares completa per cada element que la conforma.
 
 for index in range(len(pares)): #El rango nos va a dar un valor numérico (posición de los elementos -> index), no el valor de cada elemento.
     print(pares[index]) # Para que pinte el valor de cada uno de los elementos de la array.
