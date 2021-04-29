@@ -14,15 +14,15 @@ from datetime import datetime
 #Creamos una clase utilizando class
 class Alumno:
     #Variables o Propiedades de la clase
-    Nombre = None
-    Apellido1 = None
-    Apellido2 = None
+    Nombre          = None
+    Apellido1       = None
+    Apellido2       = None
     FechaNacimiento = None
 
     #Función constructor se ejecuta al crear el objeto
-    #self represente al mismo objeto
+    #self representa al mismo objeto clase
     def __init__(self, nombre, apell1, apell2) -> None:
-        self.Nombre = nombre
+        self.Nombre    = nombre
         self.Apellido1 = apell1
         self.Apellido2 = apell2
 
