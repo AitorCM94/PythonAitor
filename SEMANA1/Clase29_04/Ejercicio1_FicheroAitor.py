@@ -11,6 +11,7 @@ class Cliente:
         self.Nombre         = nombre
         self.Apellidos      = apellidos
 
+#############################################################################################################
 
 fichero = "C:\\Users\\aitor\\OneDrive\\Documentos\\GitHub\\PythonAitor\\Clase29_04\\fichero.txt"
 clientes = [] #Llenar con los datos de fichero.
@@ -20,9 +21,14 @@ for linea in (open(fichero).readlines()):
     
     if (linea[0].isdigit() == True): #Preguntar si linea posición 0 es un digito.
         #clientes.append(Cliente(fichero[1], fichero[2], fichero[7]))
-        cliente = Cliente(fichero[1], fichero[2], fichero[7]) #Creamos una variable cliente temporal.
+        cliente = Cliente(fichero[1].strip(), fichero[2].strip(), fichero[7].strip) #Creamos una variable cliente temporal. #Quitar espacios en blanco.
         clientes.append(cliente) #añadir la información en la variable
-    
+
+fichero.close()
+print(f"{len(cliente)} clientes importados.")
+
+
+#resultado = list(filter(lambda x : x.Id))
     #print(linea)
     #print(linea[2])
     #print(fichero)
@@ -35,8 +41,3 @@ for linea in (open(fichero).readlines()):
 #    print(c.Nombre)
 
 #Definición de la función que te permite buscar por el identificador de cada cliente.
-
-
-
-
-
