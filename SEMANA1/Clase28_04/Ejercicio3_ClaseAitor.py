@@ -1,7 +1,7 @@
 #Añadir dos funciones: Una que me sirva para añadir la fecha de nacimiento -> En input. Otra función para calcular la edad y la pinte.
 from datetime import datetime
 
-class Alumno: #Creación del objeto Alumno.
+class ObjetoAlumno: #Creación del objeto Alumno.
     Nombre          = None
     Apellido1       = None
     Apellido2       = None
@@ -21,13 +21,15 @@ class Alumno: #Creación del objeto Alumno.
     def edad(self) -> int:
         edad = datetime.now().date().year - self.FechaNacimiento.year
         return edad
-#########################################################
+
+#############PARTE PRINCIPAL DEL PROGRAMA################### -> Es donde según la información retornada por las funciones pintamos los resultados.
 
 #Instanciamos el Objeto, se ejecuta la función constructor.
-alumno = Alumno("Aitor", "Cerdán", "Mañé")
-
+VarAlumno = ObjetoAlumno("Aitor", "Cerdán", "Mañé")
+print(type(VarAlumno))
 
 #Invocamos a las funciones del objeto
-alumno.getNombreCompleto()
-alumno.getFechaNacimiento("14-10-1994")
-print(alumno.edad())
+VarAlumno.getNombreCompleto()
+VarAlumno.getFechaNacimiento(input("Escribe tu fecha de nacimiento (dd-mm-AAAA): "))
+print(VarAlumno.edad())
+
