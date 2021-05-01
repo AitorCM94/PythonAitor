@@ -1,6 +1,6 @@
 
 #1Abrimos el fichero -> Nos devuelve un objeto del tipo <class '_io.TextIOWrapper'>
-fichero = open(".\\SEMANA1\\Clase29_04\\Test.txt", "rt")
+fichero = open(".\\SEMANA1\\Clase29_04\\1Test.txt", "rt")
 """
 for posicion in fichero: #Pinta todas las líneas.
     print(posicion)
@@ -29,6 +29,6 @@ while linea: #Pinta todas las líneas: Mientras linea -> pinta linea -> linea ig
 lineas = fichero.readlines()
 #print(lineas)
 """
-for l in lineas: #Pinta cada elemento de la lista (cada línea).
-    print(l)
+for posicion in lineas: #Pinta cada elemento de la lista (cada línea).
+    print(posicion)
 """
