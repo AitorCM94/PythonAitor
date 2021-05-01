@@ -24,13 +24,14 @@ pares = ["casa", "coche", "moto", "perro", "luz", "cama", "sol", "guitarra", "pa
 #Numero de elementos: 9. -> len()
 
 #Con el for:
-for elementos in pares: #Recorremos la array y nos pinta el valor de cada uno de sus elementos.
-    print(elementos) #Si poso pares es pinta la variable pares completa per cada element que la conforma.
+for posicion in pares: #Recorremos la lista y nos pinta el valor de cada uno de sus elementos.
+    print(posicion) #Si pones pares pinta toda la lista tantas veces como elementos tiene.
 
-for index in range(len(pares)): #El rango nos va a dar un valor numérico (posición de los elementos -> index), no el valor de cada elemento.
-    print(pares[index]) # Para que pinte el valor de cada uno de los elementos de la array.
+for posicion in range(len(pares)): #El rango nos va a dar un valor numérico -> el índice (que se corresponde a la posición).
+    print(pares[posicion]) #De esta manera indicamos que pinte el valor de cada posicion de la lista.
+
 #Con el while:
-index = 0
-while (index < len(pares)):
-    print(pares[index])
-    index += 1
+posicion = 0
+while (posicion < len(pares)):
+    print(pares[posicion])
+    posicion += 1
