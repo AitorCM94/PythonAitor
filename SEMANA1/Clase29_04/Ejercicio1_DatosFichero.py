@@ -13,9 +13,8 @@ class Cliente:
         self.Apellidos      = apellidos
 ########################################################################################################
 
-
 fichero = open(".\\SEMANA1\\Clase29_04\\fichero.txt", "rt") #Abrimos el fichero -> objeto del tipo <class '_io.TextIOWrapper'>
-ClientesVol = [] #Variable lista inicialmente vacía donde volcamos todos los objetos cliente con sus parámetros. ¿Tendriamos 5000 objetos? Sí/No.
+ClientesVol = [] #Variable lista inicialmente vacía donde volcamos todos los objetos cliente con sus parámetros. ¿Tendriamos 5000 objetos? Sí
 
 #RECORRER Y SEPARAR TODOS LOS DATO DEL FICHERO.
 listafichero = fichero.readlines() #Utilizamos la función .readlines() para pasarlo a tipo <class 'list'>. Cada linea es una posicion.
@@ -37,7 +36,7 @@ fichero.close() #Cerramos el fichero. Siempre.
 for posicion in ClientesVol:
     print(posicion.Nombre) #Podemos usar los parámetros del objeto, en este caso el Nombre.
 """
-
+"""
 #Preguntar por X parámetros (en este caso Nombre, Apellidos y Id) del objeto de la posición X:
 while(True): #De esta forma siempre se ejecuta.
     posicion = input("Dime una posición: ") #Preguntamos la posición.
@@ -46,3 +45,32 @@ while(True): #De esta forma siempre se ejecuta.
             break
     else:
         print(f"{ClientesVol[int(posicion)].Nombre} {ClientesVol[int(posicion)].Apellidos} {ClientesVol[int(posicion)].Identificador}")
+"""
+
+#FILTROS DE BÚSQUEDA:
+#Ejemplo:
+numeros = [2,45,76,345,87,3,0,234,32,5]
+#Definición de una función para buscar números más grandes que 100:
+def Func(numero):
+    if(numero > 100):
+        return True
+    else:
+        return False
+#Uso de la función filter(con la función que hemos definido, en la lista numeros): (epsecificando que se trata de una lista)
+#resultado = list(filter(Func, numeros))
+
+#Lo mismo, usando directamente una función lambda:
+resultado = list(filter(lambda numero: numero > 100, numeros)) #Hace exactamente lo mismo que con la Func definida.
+print(resultado)
+
+"""
+#Definición de la función que me permite buscar con el identificador:
+def FiltroID(cliente): #Por parametro siempre vamos a recibir los elementos de una colección. En este caso los de la lista ClientesVol, que son los objetos cliente.
+    if(cliente.Identificador == "2468"): #Si el identificador del objeto cliente coincide con el que queremos, devuelve True.
+        return True
+    else:
+        return False
+#Uso de la función creada con la función de python filter():
+resultado = filter(FiltroID, ClientesVol) #Retorna el objeto que coincide.
+print(resultado)
+"""
