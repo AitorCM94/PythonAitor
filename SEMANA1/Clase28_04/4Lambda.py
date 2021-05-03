@@ -14,7 +14,7 @@ numeros = [10, 43, 2, 65, 2, 67, 34]
 
 #Expresion lambda con un parámetro "n" donde a "n" le sumamos 10:
 sumar10 = lambda n : n + 10
-#Expresion lambda donde sumamos los parámetros "n1" y "n2":
+#Expresion lambda donde sumamos los parámetros "n1" y "n2" (dos parámetros):
 sumarVar = lambda n1, n2 : n1 + n2
 
 print(sumar10(numeros[1]))

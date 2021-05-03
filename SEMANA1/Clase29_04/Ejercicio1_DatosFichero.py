@@ -31,7 +31,7 @@ fichero.close() #Cerramos el fichero. Siempre.
 
 
 #Una vez Instanciado el objeto con los datos del fichero, podemos acceder a todas las funciones y propiedades definidas dentro de la clase.
-"""
+
 #Ejemplo pintando los nombres:
 for posicion in ClientesVol:
     print(posicion.Nombre) #Podemos usar los parámetros del objeto, en este caso el Nombre.
@@ -45,7 +45,7 @@ while(True): #De esta forma siempre se ejecuta.
             break
     else:
         print(f"{ClientesVol[int(posicion)].Nombre} {ClientesVol[int(posicion)].Apellidos} {ClientesVol[int(posicion)].Identificador}")
-"""
+
 
 #FILTROS DE BÚSQUEDA:
 #Ejemplo:
@@ -62,15 +62,3 @@ def Func(numero):
 #Lo mismo, usando directamente una función lambda:
 resultado = list(filter(lambda numero: numero > 100, numeros)) #Hace exactamente lo mismo que con la Func definida.
 print(resultado)
-
-"""
-#Definición de la función que me permite buscar con el identificador:
-def FiltroID(cliente): #Por parametro siempre vamos a recibir los elementos de una colección. En este caso los de la lista ClientesVol, que son los objetos cliente.
-    if(cliente.Identificador == "2468"): #Si el identificador del objeto cliente coincide con el que queremos, devuelve True.
-        return True
-    else:
-        return False
-#Uso de la función creada con la función de python filter():
-resultado = filter(FiltroID, ClientesVol) #Retorna el objeto que coincide.
-print(resultado)
-"""
