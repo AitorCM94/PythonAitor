@@ -1,16 +1,35 @@
-import json
+import json #Para trabajar con JSON tenemos que importar el módulo json.
 
-file = open("C:\\Users\\aitor\\OneDrive\\Documentos\\GitHub\\PythonAitor\\fichero.json","rt")
-dataJSON = file.read() #Leemos todo el contenido del fichero
+#LECTURA DEL FICHERO:
+file = open(".\\SEMANA2\\Clase03_05\\fichero.json","rt", encoding="UTF-8") #Modo lectura.
+dataJSON = file.read() #Leemos todo el contenido del fichero. Variable <class 'str'>.
 file.close()
 
-customers = json.loads(dataJSON) #Transforma el texto en una lista.
+#PASAR DE JSON A OBJETO:
+customers = json.loads(dataJSON) #Transformamos el texto JSON a un objeto de tipo <class 'list'>.
+#print(len(customers)) #Como es una lista, podemos ver el numero de clientes (elementos de la lista).
+#print(customers[0]['City']) #Y con la [posicion] podemos acceder a cada elemento. Los clientes a su vez estan en formato Diccionario [clave] ->:[valor].
 
-print(type(dataJSON))
-print(type(customers))
+#print(customers[0].keys()) #Para pintar las claves del diccionario customers[0]
+#CLAVES: 'CustomerID', 'CompanyName', 'ContactName', 'ContactTitle', 'Address', 'City', 'Region', 'PostalCode', 'Country', 'Phone', 'Fax'.
+#ID: ANATR, ANTON... Son de tipo texto.
 
-print(len(customers))
-print(customers[0]['City']) #Una lista [posicion] donde cada elemento es un Diccionario [clave]
+#DEFINICIÓN DE LA FUNCIÓN PARA PINTAR:
+def PrintData(customer): #Recibe el resultado de la búsqueda.
+    print(f"CustomerID: {customer['CustomerID']}") #Elemento cliente (un diccionario), entre corchetes la clave ('alfanumerica').
+    print(f"Company: {customer['CompanyName']}")
+    print(f"Contact: {customer['ContactName']} ({customer['ContactTitle']})")
+    print(f"Address: {customer['Address']}")
+    print(f"         {customer['PostalCode']}, {customer['City']}, {customer['Country']}")
+    print(f"Phone: {customer['Phone']}  Fax: {customer['Fax']}")
 
 
-#'CustomerID', 'CompanyName', 'ContactName', 'ContactTitle', 'Address', 'City', 'Region', 'PostalCode', 'Country', 'Phone', 'Fax'
+inID = input("ID: ") #Pedimos el ID
+
+#DEFINICIÓN DE LA FUNCIÓN PARA FILTRAR:
+search = list(filter(lambda customer: customer['CustomerID'] == inID, customers)) #Devuelve el customer (lista) que coincida con el input.
+
+if (len(search) == 0):
+    print("Not found.")
+else:
+    PrintData(search[0]) #Del resultado de la búsqueda mando el que está en la posición [0] -> El identificador (único).
