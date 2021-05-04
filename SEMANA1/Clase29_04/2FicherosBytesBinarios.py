@@ -26,3 +26,4 @@ fichero = open(".\\SEMANA1\\Clase29_04\\2Test.bin", "rb")
 texto = pickle.load(fichero)
 #print(texto)
 """
+fichero.close()
