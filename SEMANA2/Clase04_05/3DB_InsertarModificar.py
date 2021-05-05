@@ -43,7 +43,8 @@ newValues = {
 #print(result.modified_count, 'elementos modificados')
 #pprint(collection.find_one(query)) #Nos pinta el elemento actualizado.
 
-########################################################### -> Insertar con python como objeto. -> 05/05/2021
+#--------------INSERTAR DATOS COMO OBJETO--------------# -> 05/05/2021
+
 #1. Creamos la clase:
 class Customer:
     CustomerID = None
@@ -75,5 +76,3 @@ cliente.Fax = "(91) 200 80 80"
 #pprint(cliente.__dict__)
 
 #idNewDocument = client.Northwind.customers.insert_one(cliente.__dict__).inserted_id #Añadir el documento.
-
-###########################################################

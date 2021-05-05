@@ -51,6 +51,7 @@ result = collection.find({'Country': 'USA'}).sort('City', 1) #Ordenar las ciudad
 #for d in result:
 #    pprint(d)
 
+
 ##################################################################
 #1. Buscar con el ObjectID:
 id = ObjectId('60927747c76c96f538b0fa64')
