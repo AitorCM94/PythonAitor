@@ -12,6 +12,7 @@ orders = northwindDB.orders
 #En la base de datos todos los pedidos (orders) tienen el identificador del cliente al que pertenece el pedido.
 
 #--------------AGREGACIONES--------------#
+
 #0. Buscar la información del cliente y de los pedidos:
 c = customers.find_one({'CustomerID':'ANATR'})
 o = orders.find_one({'CustomerID':'ANATR'})

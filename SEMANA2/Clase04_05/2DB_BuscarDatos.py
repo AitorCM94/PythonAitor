@@ -21,8 +21,8 @@ result = collection.find() #Devuelve un objeto Cursor de tipo colección que pod
 
 result = collection.find_one({'CustomerID': 'LAUGB'}) #La {'clave':'valor'} -> Propiedad de un obejto (entre llaves).
 
-result = collection.find({'Country': 'Mexico'}) #Devuelve una colección con todos los elementos encontrados (claves) -> Podemos recorrerlo:
-while (result.alive): #.alive devuelve un boolean True si quedan más elementos o False si el cursor ya se encuentra en el último.
+result = collection.find({'Country': 'Mexico'}) #Devuelve un tipo de colección Cursor con todos los elementos encontrados (claves) -> Podemos recorrerlo:
+while (result.alive): # .alive devuelve True si quedan más elementos por recorrer -> Es decir si podemos seguir ejecutando el .next()
     pprint(result.next()) #El método next hace que pinte las claves. Posiciona el cursor en el siguiente elemento.
 result.close() #Cerrar el cursor.
 
