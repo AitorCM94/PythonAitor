@@ -1,5 +1,6 @@
 from pymongo import MongoClient
 from pprint import pprint
+import json #Para utilizar funciones y propiedades referentes al formato json.
 
 #CLIENTE:
 client = MongoClient('mongodb://localhost:27017')
@@ -8,9 +9,9 @@ northwindDB = client.Northwind
 #COLECCIONES:
 collection = northwindDB.customers
 
-#--------------INSERTAR DATOS JSON--------------#
+#--------------INSERTAR UN DOCUMENTO (JSON)--------------#
 
-#Creamos una estructura (variable) que represente el documento y nos permita ir añadiendo valores:
+#1. Dentro de una variable creamos una estructura que represente el documento y nos permita ir añadiendo valores:
 customer = {
     "CustomerID": "DEMO3",
     "CompanyName": "EuroTomb, SL",
@@ -23,27 +24,33 @@ customer = {
     "Country": "Spain",
     "Phone": "(91) 200 20 20",
     "Fax": "(91) 200 80 80"
-} #Objeto expresado con conotación de JavaScript. Las llaves simpre representan un objeto.
+} #Variable que contiene un objeto expresado con conotación de JavaScript (entre llaves = objeto).
 
+#2. Usamos la funcion:
 #idNewDocument = collection.insert_one(customer).inserted_id #Para insertar un documento. Añade un identificador.
 
-#--------------MODIFICAR UN DOCUMENTO--------------#
+#--------------MODIFICAR DOCUMENTOS--------------#
 
-query = {'CustomerID': 'DEMO3'} #Definir la consulta -> query
+#1. Creamos las variables:
+query = {'CustomerID': 'DEMO3'} #Definir la consulta (query) -> Determina los documentos a modificar.
 newValues = {
-    "$set": {
+    "$set": { #Comando set -> Se utiliza para asignar valores a las propiedades
     "CompanyName": "blablabla", 
     "ContactTitle": "blablabla"
     }
-} #Valores que quiera modificar. Todos los que queramos.
+} #Claves y Valores a modificar. Todos los que queramos.
 
+#2. Usamos las funciones:
 #result = collection.update_one(query, newValues) #La instrucción para actualizarlo (solo uno, el primero).
+#result = collection.update_many(quert, newValues) #Para modificar todos los registros con la clave coincidente.
 
+#2.1 Comprovamos:
 #print(result.matched_count, 'elementos encontrados')
 #print(result.modified_count, 'elementos modificados')
+#pprint(result)
 #pprint(collection.find_one(query)) #Nos pinta el elemento actualizado.
 
-#--------------INSERTAR DATOS COMO OBJETO--------------# -> 05/05/2021
+#--------------INSERTAR UN DOCUMENTO (Python)--------------# 
 
 #1. Creamos la clase:
 class Customer:
@@ -58,7 +65,8 @@ class Customer:
     Country = None
     Phone = None
     Fax = None
-#-------------------------#
+
+#2. Instanciamos el objeto y le añadimos valores:
 cliente = Customer()
 cliente.CustomerID = "DEMO2"
 cliente.CompanyName = "EuroTomb, SL"
@@ -72,7 +80,10 @@ cliente.Country = "Spain"
 cliente.Phone = "(91) 200 20 20"
 cliente.Fax = "(91) 200 80 80"
 
-#2. Convertir el objeto cliente en JSON: #No es posible convertir el objeto directamente en JSON.
-#pprint(cliente.__dict__)
+#3. Pasar el objeto cliente a JSON: 
+pprint(cliente.__dict__) #__dict__ -> Devuelve las propiedades en formato JSON.
+#Si quisiéramos hacer nosotros la conversión deberíamos hacer una función que seleccione los parámetros a convertir. O:
+#pprint(json.dumps(cliente, default=lambda x: x.__dict__)) #Uso de la función .dumps, el objeto y el encoder (cuna función lambda). Devuelve una Tupla (no funciona).
 
+#4. Usamos la función:
 #idNewDocument = client.Northwind.customers.insert_one(cliente.__dict__).inserted_id #Añadir el documento.

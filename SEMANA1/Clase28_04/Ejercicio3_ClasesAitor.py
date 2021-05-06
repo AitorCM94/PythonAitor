@@ -33,3 +33,13 @@ VarAlumno.getNombreCompleto()
 VarAlumno.getFechaNacimiento(input("Escribe tu fecha de nacimiento (dd-mm-AAAA): "))
 print(VarAlumno.edad())
 
+
+#------------------Pasar parámetros de manera desordenada------------------#
+#Parámetros constructor:
+def __init__(self, Nombre, Apellido1="", Apellido2) -> None: #Apellido1 podría quedar vacío.
+        self.Nombre    = Nombre 
+        self.Apellido1 = Apellido1
+        self.Apellido2 = Apellido2
+
+#Parámetros al instanciar el objeto:
+variable = objeto(Apellido2=Mañé, Nombre=Aitor)
