@@ -1,6 +1,4 @@
-from itertools import product
 from pymongo import MongoClient
-from pprint import pprint
 
 #Cliente:
 connect = MongoClient('mongodb://localhost:27017/')
