@@ -19,11 +19,11 @@ result = collection.find() #Devuelve un objeto Cursor de tipo colección que pod
 
 #--------------AÑADIR FILTROS--------------#
 
-result = collection.find_one({'CustomerID': 'LAUGB'}) #La {'clave':'valor'} -> Propiedad de un obejto (entre llaves).
+result = collection.find_one({'CustomerID': 'LAUGB'}) #La {'clave':'valor'} -> Propiedad de un obejto {}.
 
-result = collection.find({'Country': 'Mexico'}) #Devuelve un tipo de colección Cursor con todos los elementos encontrados (claves) -> Podemos recorrerlo:
-while (result.alive): # .alive devuelve True si quedan más elementos por recorrer -> Es decir si podemos seguir ejecutando el .next()
-    pprint(result.next()) #El método next hace que pinte las claves. Posiciona el cursor en el siguiente elemento.
+result = collection.find({'Country': 'Mexico'}) #Devuelve un tipo de colección Cursor con todos los documentos que coinciden con la clave -> Podemos recorrerlo:
+while (result.alive): # .alive devuelve True si quedan más documentos por recorrer -> Es decir si podemos seguir ejecutando el .next()
+    pprint(result.next()) #.next() posiciona el cursor en el siguiente documento.
 result.close() #Cerrar el cursor.
 
 #BUSCAR DOS CAMPOS CONCRETOS:
@@ -33,12 +33,13 @@ result = collection.find({'Country': {'$in' : ['USA', 'Mexico']}}) # $in -> valo
 #BUSCAR POR EL ObjectID:
 result = collection.find_one({'_id' : ObjectId('60927747c76c96f538b0fa64')})
 
-#--------------PINTAR NÚMERO DOCUMENTOS--------------#
+#--------------CONTAR NÚMERO DOCUMENTOS--------------#
 
-print("Número de documentos: ", collection.count_documents({'Country': 'USA'})) #La base de datos nos dice cuantos hay (datos no descargados).
-#print("Número de documentos: ", result.count()) #Nos dice el número de elementos de la búsqueda (datos descargados).
+print("Número de documentos filtrados: ", collection.count_documents({'Country': 'USA'})) #La base de datos nos dice cuantos hay (datos no descargados).
+print("Número de documentos totales: ", collection.estimated_document_count())
+##print("Número de documentos: ", result.count()) #Nos dice el número de elementos de la búsqueda (datos descargados).
 
-print("Datos por leer: ", result.alive)
+#print("Datos por leer: ", result.alive)
 
 #--------------FUNCIONES DE BÚSQUEDA AVANZADA--------------#
 

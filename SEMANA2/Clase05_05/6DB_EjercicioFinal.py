@@ -2,42 +2,61 @@ from pymongo import MongoClient
 
 #Cliente:
 connect = MongoClient('mongodb://localhost:27017/')
-
 #Base de datos:
 db = connect.Northwind
-
 #Colecciones:
-orders = db.orders
-details = db.order_details
 products = db.products
 
 
-##Buscar cuantos productos tenemos:
+##1. CONTAR NÚMERO DE DOCUMENTOS (productos):
 #print("Número de productos: ", products.estimated_document_count())
 
-##Buscar y mostrar todos los productos:
+##2. BUSCAR Y MOSTRAR TODOS LOS DOCUMENTOS (productos):
 listProducts = products.find() #Devuelve un objeto Cursor de tipo colección (como si fuera una lista) que podemos recorrer:
 #for document in listProducts:
-#    print(f"{document['ProductName']}") #Pinta todos los documentos de la colección.
-#Con un while:
-#cursor = products.find()
-#while(cursor.alive): #Cuando .live is true.
-#    print(cursor.next()['ProductName'])
+#    print(f"{document['ProductName']}") #Document es un diccionario -> Entre [] la clave para acceder a su valor.
+cursor = products.find()
+while(cursor.alive): #Cuando .live is true.
+    print(cursor.next()['ProductName']) #Cursor es un diccionario.
 
-##Buscar productos con UnitsInStock = 0:
-#pro = list(filter(lambda p: p['UnitsInStock'] == '0', listProducts)) #Buscar los productos de manera local.
-#for p in pro:
+##3. BUSCAR DOCUMENTOS CON LA CLAVE UnitsInStock = 0:
+listProducts = products.find()
+ListNoStock = list(filter(lambda p: p['UnitsInStock'] == '0', listProducts)) #Buscar los productos de manera local. Retorna una lista. 
+#for p in ListNoStock:
 #    print(f"{p['ProductName']}")
-#pNoStock = products.find({'UnitsInStock': '0'}) #Buscar los productos en la base de datos. Más optimizado.
-#for document in pNoStock:
+CurNoStock = products.find({'UnitsInStock': '0'}) #Buscar los productos en la base de datos -> Más optimizado. Retorna un Cursor.
+#for document in CurNoStock:
 #    print(document['ProductName'])
 
-##Coste o Valor de nuestro Stock - Producto -> UnitsInStock, UnitPrice:
-pInStock = products.find({'UnitsInStock':{'$ne':'0'}}) #Buscamos los productos que tienen stock no igual a 0.
+##4. SUMAR VALORES (precio del stock) -> CLAVES (UnitsInStock / UnitPrice):
+pInStock = products.find({'UnitsInStock':{'$ne':'0'}}) #Buscamos los productos que tienen stock NO igual a 0.
 valorStock = 0
-for p in listProducts:
+for p in pInStock:
     valorStock += (float(p['UnitPrice']) * float(p['UnitsInStock']))
 
 print(f"\nValor del Stock: {valorStock:1.2f}")
 
-##Con la función de agregación podemos hacer que la base de datos nos de directamente la operación... POR MIRAR!!!
+"""
+#4.1 Utilizando las funciones map() y sum ():
+TotalStock = sum(list(map(lambda x: float(x['UnitPrice']) * float(n['UnitsInStock']) ,productos.find())))
+print(f"\nValor del Stock: {TotalStock:1.2f}")
+
+##4.2 CON LA FUNCIÓN DE AGREGACIÓN -> Podemos hacer que la base de datos nos de directamente la operación:
+query = [
+    { '$match': { 'UnitsInStock' : { '$ne': '0' } } },
+    { '$addFields': {
+        'Price': { '$toDouble': '$UnitPrice' },
+        'Stock': { '$toInt': '$UnitsInStock' },
+        }
+    },
+    { '$group': {
+        '_id': 'Valor del Stock', 
+        'Total': { '$sum': { '$multiply': [ '$Price', '$Stock' ] } },
+        'Items': { '$sum' : 1 }
+        }
+    }      
+]
+
+listProductos = productos.aggregate(query)
+print(listProductos.next())
+"""

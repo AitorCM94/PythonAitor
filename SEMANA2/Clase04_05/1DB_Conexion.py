@@ -1,6 +1,6 @@
 from pymongo import MongoClient #Es el objeto que representa la conexión a la base de datos.
 
-#--------------CONEXIÓN CON BASE DE DATOS--------------#
+#--------------CONEXIÓN CON LA BASE DE DATOS--------------#
 
 #1. Establecer la conexión con MongoDB (motor de base de datos):
 client = MongoClient('mongodb://localhost:27017') #Cadena de conexión.
@@ -30,7 +30,3 @@ collection = northwindDB.customers #Variable que contiene la base de datos. El n
 #collection = client.Northwind.customers #Variable que contiene el motor de la B.D. La base de datos. La colección. -> Notación de objeto.
 #collection = client['Northwind']['customers'] #Notación de diccionario.
 
-#--------------DOCUMENTOS--------------#
-#Contar documentos:
-result = collection.estimated_document_count()
-print(result)
