@@ -1,6 +1,6 @@
 
 #Abrimos el fichero -> Nos devuelve un objeto del tipo <class '_io.TextIOWrapper'>
-fichero = open(".\\SEMANA1\\Clase29_04\\1Test.txt", "rt")
+fichero = open(".\\05_Ficheros\\Test.txt", "rt")
 """
 for posicion in fichero: #Pinta todas las líneas. Podemos tratar el fichero como si fuera una colección.
     print(posicion)

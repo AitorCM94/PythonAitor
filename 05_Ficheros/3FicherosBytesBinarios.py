@@ -13,7 +13,7 @@ print(bytes3.hex()) #Representación de bytes a hexadecimal. Cada dos caráctere
 
 """
 #1. Abrimos el fichero en modo escritura, binario. Si el fichero no existe, crea uno nuevo:
-fichero = open(".\\SEMANA1\\Clase29_04\\2Test.bin", "wb")
+fichero = open(".\\05_Ficheros\\Test3.bin", "wb")
 #2. Escribimos en el fichero con la función .dump:
 texto = "En un lugar de la Mancha..."
 pickle.dump(texto, fichero)
@@ -21,7 +21,7 @@ fichero.close()
 """
 """
 #1. Abrimos el fichero en modo lectura, binario:
-fichero = open(".\\SEMANA1\\Clase29_04\\2Test.bin", "rb")
+fichero = open(".\\05_Ficheros\\Test3.bin", "rb")
 #2. Leemos la información del fichero con la función .load:
 texto = pickle.load(fichero)
 #print(texto)
@@ -29,7 +29,7 @@ fichero.close()
 """
 """
 #Podemos gravar la información en formato bytes o hexadecimal en un fichero de texto normal:
-fichero = open(".\\SEMANA1\\Clase29_04\\2Test.txt", "wt")
+fichero = open(".\\05_Ficheros\\Test3.txt", "wt")
 fichero.write(bytes3.hex())
 fichero.close()
 """

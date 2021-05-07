@@ -1,7 +1,7 @@
 import json #Para trabajar con JSON tenemos que importar el módulo json.
 
 #LECTURA DEL FICHERO:
-file = open(".\\SEMANA2\\Clase03_05\\fichero.json","rt", encoding="UTF-8") #Modo lectura.
+file = open(".\\05_Ficheros\\fichero.json","rt", encoding="UTF-8") #Modo lectura.
 dataJSON = file.read() #Leemos todo el contenido del fichero. Variable <class 'str'>.
 file.close()
 

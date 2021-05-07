@@ -15,7 +15,7 @@ class Cliente:
 ########################################################################################################
 from datetime import datetime
 
-fichero = open(".\\SEMANA1\\Clase29_04\\fichero.txt", "rt") #Abrimos el fichero de texto en modo lectura.
+fichero = open(".\\05_Ficheros\\fichero.txt", "rt") #Abrimos el fichero de texto en modo lectura.
 ClientesVol = []
 
 #RECORRER Y SEPARAR TODOS LOS DATO DEL FICHERO.

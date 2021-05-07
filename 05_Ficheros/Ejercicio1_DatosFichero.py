@@ -13,7 +13,7 @@ class Cliente:
         self.Apellidos      = apellidos
 ########################################################################################################
 
-fichero = open(".\\SEMANA1\\Clase29_04\\fichero.txt", "rt") #Abrimos el fichero -> objeto del tipo <class '_io.TextIOWrapper'>
+fichero = open(".\\05_Ficheros\\fichero.txt", "rt") #Abrimos el fichero -> objeto del tipo <class '_io.TextIOWrapper'>
 ClientesVol = [] #Variable lista inicialmente vacía donde volcamos todos los objetos cliente con sus parámetros. ¿Tendriamos 5000 objetos? Sí
 
 #RECORRER Y SEPARAR TODOS LOS DATO DEL FICHERO.
