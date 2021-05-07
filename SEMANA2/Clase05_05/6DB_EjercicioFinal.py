@@ -35,10 +35,9 @@ for p in pInStock:
     valorStock += (float(p['UnitPrice']) * float(p['UnitsInStock']))
 
 print(f"\nValor del Stock: {valorStock:1.2f}")
-
 """
 #4.1 Utilizando las funciones map() y sum ():
-TotalStock = sum(list(map(lambda x: float(x['UnitPrice']) * float(n['UnitsInStock']) ,productos.find())))
+TotalStock = sum(list(map(lambda x: float(x['UnitPrice']) * float(x['UnitsInStock']) ,productos.find())))
 print(f"\nValor del Stock: {TotalStock:1.2f}")
 
 ##4.2 CON LA FUNCIÓN DE AGREGACIÓN -> Podemos hacer que la base de datos nos de directamente la operación:
