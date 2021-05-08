@@ -35,27 +35,30 @@ for p in pInStock:
     valorStock += (float(p['UnitPrice']) * float(p['UnitsInStock']))
 
 print(f"\nValor del Stock: {valorStock:1.2f}")
-"""
+
 #4.1 Utilizando las funciones map() y sum ():
-TotalStock = sum(list(map(lambda x: float(x['UnitPrice']) * float(x['UnitsInStock']) ,productos.find())))
-print(f"\nValor del Stock: {TotalStock:1.2f}")
+valorStock = sum(list(map(lambda x: float(x['UnitPrice']) * float(x['UnitsInStock']) ,products.find())))
+print(f"\nValor del Stock: {valorStock:1.2f}")
+
 
 ##4.2 CON LA FUNCIÓN DE AGREGACIÓN -> Podemos hacer que la base de datos nos de directamente la operación:
 query = [
-    { '$match': { 'UnitsInStock' : { '$ne': '0' } } },
-    { '$addFields': {
-        'Price': { '$toDouble': '$UnitPrice' },
-        'Stock': { '$toInt': '$UnitsInStock' },
+    { '$match': { 'UnitsInStock' : { '$ne': '0' } } }, #Buscamos todos los productos cuyo stock sea distinto de 0.
+    { '$addFields': { #Creamos dos nuevos datos:
+        'Price': { '$toDouble': '$UnitPrice' }, #Convertimo la str UnitPrice en números decimal (también podemos usar $toDecimal, más precisión).
+        'Stock': { '$toInt': '$UnitsInStock' }, #Convertimo la str UnitStock en números enteros.
         }
     },
-    { '$group': {
+    { '$group': { #Agrupamos y calculamos:
         '_id': 'Valor del Stock', 
-        'Total': { '$sum': { '$multiply': [ '$Price', '$Stock' ] } },
-        'Items': { '$sum' : 1 }
+        'Total': { '$sum': { '$multiply': [ '$Price', '$Stock' ] } }, #El total: sumar la multiplicación de precio y stock.
+        'Items': { '$sum' : 1 } #Vamos contando los registros que agrupamos, para ver cuantos elementos hemos multiplicado y hemos sumado.
         }
-    }      
+    }
 ]
 
-listProductos = productos.aggregate(query)
-print(listProductos.next())
-"""
+listProducts = products.aggregate(query) #Esta seria la consulta, la utilizamos con agregación.
+print(listProducts.next()) #Pintamos los datos.
+
+#CON SQL SERVER:
+#PODEMOS USAR SENTENCIAS EN TRANSAT-SQL Y HACER LOS CALCULOS DIRECTAMENTE EN LA BASE DE DATOS -> SELECT SUM(UnitPrice * UnitsInStock) [AS NombreColumna] FROM Products

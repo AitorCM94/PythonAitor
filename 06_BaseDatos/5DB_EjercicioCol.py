@@ -36,7 +36,7 @@ if(pedido != None): #Si el pedido existe.
 #3. Buscamos si el ID del pedido coincide con algún documento de la colección details: (buscamos los detalles del pedido: Cantidades y precio unidad)
     detalles = details.find({'OrderID' : idPedido}) #Devuelve un objeto Cursor (una lista) con los documentos coincidentes.
 #4. Recorremos los documentos del objeto Cursor (detalles):
-    totalPedido = 0
+    totalPedidos = 0
     while(detalles.alive): #Mientras queden documentos por recorrer.
         DocDet = detalles.next() #Posiciona el cursor en el siguiente documento.
         #5. Calculamos el precio de todas las cantidades:
@@ -45,13 +45,13 @@ if(pedido != None): #Si el pedido existe.
         #6. Buscamos el nombre del producto -> En la colección products (con el ID):
         producto = products.find_one({'ProductID' : DocDet['ProductID']})
         #7. Calculamos el precio total del pedido:
-        totalPedido += precioProd
-        totalPedidoF = "{:1.2f}".format(totalPedido)
+        totalPedidos += precioProd
+        totalPedidosF = "{:1.2f}".format(totalPedidos)
         #Pintamos las claves del producto (documento):
         print(f"  {producto['ProductName']:<31} {DocDet['Quantity']:>6} {DocDet['UnitPrice']:>10} {precioProdF:>10}") 
         #Tabula la información: Especificar el máximo de espacios de la columna y su alineación (<izquierda, >derecha)
     #Pintamos el importe total del pedido:
     print(f"==============================================================")
-    print(f"  {'TOTAL':>49} {totalPedidoF:>10}")    
+    print(f"  {'TOTAL':>49} {totalPedidosF:>10}")    
 else:
     print(f"El pedido {idPedido} no existe.")
