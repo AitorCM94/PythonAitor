@@ -8,7 +8,7 @@ idPedido = input('Identificador del pedido: ')
 
 #2. Buscamos si el ID del pedido coincide con algún registro de la tabla Orders:
 cursor = conexion.cursor(as_dict=True) #CREAMOS EL OBJETO CURSOR -> PASAMOS LA TUPLA A DICCIONARIO.
-cursor.execute('SELECT * FROM Orders WHERE OrderID = %s', idPedido) #Ejecutamos el comando de búsqueda.
+cursor.execute('SELECT ShipName, ShipAddress, ShipCity, ShipCountry FROM Orders WHERE OrderID = %s', idPedido) #Ejecutamos el comando de búsqueda.
 
 #Sentencia de control para determinar si el pedido existe o no:
 if(cursor.rowcount == 0): 
