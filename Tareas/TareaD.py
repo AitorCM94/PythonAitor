@@ -7,12 +7,14 @@ lista = ["T", "R", "W", "A", "G", "M", "Y", "F", "P", "D", "X", "B", "N", "J", "
 
 #try:
 dniInp = input(f"Número del DNI sin letra: ")
-
+print(len(dniInp))
 numDNI = int(dniInp)
 
 resto = numDNI % 23
 
 print(f"DNI: {numDNI}{lista[resto]}")
 
-#if ( == int):
-#    resto = dniNoL % len(dn)
+if ((len(dniInp) == 8) and (dniInp.isdigit() != True)): # and // No funciona el and
+    print("funciona")
+
+#47590356
