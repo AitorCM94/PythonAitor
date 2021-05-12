@@ -11,10 +11,10 @@ apellido = input("Apellido: ")
 fechaNacimiento = input("Fecha de nacimiento: ") #Modo texto.
 clase = int(input("Clase(1, 2, 3): "))
 #1.2 Diccionarios para incorporar los datos a la llamada:
-header = {'content-type':'application/json'}
+headers = {'content-type':'application/json'}
 data = {'firstName':nombre, 'lastName':apellido, 'dateOfBirth':fechaNacimiento, 'classId':clase}
 #1.3 Llamada en modo post:
-response = requests.post(url, headers=header, data=json.dumps(data)) #json.dumps(data) -> Para convertir el texto de data en json = Diccionario.
+response = requests.post(url, headers=headers, data=json.dumps(data)) #json.dumps(data) -> Para convertir el texto de data en json = Diccionario.
 
 #2. Comprobamos que la llamada se ha realizado correctamente:
 print('Código de Estado: ', response.status_code)
