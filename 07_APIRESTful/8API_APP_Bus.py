@@ -90,7 +90,7 @@ if(token != None):
         print(f"{'':>5}- Tiempo estimado de llegada: {minutos}.")
     """
     #2.3.2 Borja:
-    if(response.status_code == 200): #NO FUNCIONA.
+    if(response.status_code == 200): #NO FUNCIONA -> KeyError: 'Arrive'
         data = list(map(InfoBus, response.json()['data'][0]['data'])) #response.json -> Datos como parámetros de Infobus -> Función de map().
 
         for item in data:
