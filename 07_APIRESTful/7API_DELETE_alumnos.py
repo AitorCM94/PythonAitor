@@ -12,7 +12,8 @@ if(conf == "si"):
     response = requests.delete(url + idAlumno) #BORRADO
     print('Registro eliminado: ', response.reason)
     
-    prettyJSON = json.loads(response.text) #PARA PINTAR BONITO EL MENSAJE (BODY) DE RESPUESTA.
+    #PARA USAR PPRINT EN EL MENSAJE (BODY) DE RESPUESTA:
+    prettyJSON = json.loads(response.text) 
     pprint(f"Registro: {json.dumps(prettyJSON, indent=3)}")
 else:
     print("No se ha borrado el registro.")
