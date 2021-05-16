@@ -1,9 +1,7 @@
-"""
-1. Preguntar al operador una frase
-2. Preguntar al operador una letra
-3. Mostrar por pantalla cuantas veces aparece la letra en la frase
-4. Tenemos que usar un WHILE
-"""
+#1. Preguntar al operador una frase
+#2. Preguntar al operador una letra
+#3. Mostrar por pantalla cuantas veces aparece la letra en la frase
+#4. Tenemos que usar un WHILE
 """
 #Propio: 
 frase = input("Escribe la frase: ")

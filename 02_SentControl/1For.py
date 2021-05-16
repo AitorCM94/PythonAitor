@@ -19,3 +19,6 @@ for numero in range(7): #Con range() le estamos indicando el [stop] -> en que it
 for posicion in range(len(citricos)): # Repetir la iteración hasta que se pase por cada uno de los elementos de la lista citricos. 
     print(f"P: {posicion} -> {citricos[posicion]}") #Pintamos el elemento posicion (en este caso marcado por la función contador range())-> Esto nos da la posición.
                                                     #Y pintamos el elemento de cada posición de la variable lista cítricos.
+
+
+#Para pintar todo en una sola línea: print(x, end=' ')

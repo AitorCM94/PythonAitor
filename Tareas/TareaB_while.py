@@ -11,3 +11,12 @@ if (inNum < 1 and inNum > 0):
     acos = print(f"Arco coseno: {math.acos(inNum):2.4f}")
 else:
     print("No es correcto.")
+    inNum = ""
+
+
+#.isdigit() -> Si todos los carácteres de la str son números.
+"""
+while (inNum > 1 and inNum < 0 or inNum.isdigit() == False):
+    print("No es correcto.")
+    inNum = ""
+"""
