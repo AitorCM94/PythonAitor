@@ -55,7 +55,7 @@ if(response.status_code == 200):
                 #print(type(d['freeParking']))
                 total += d['freeParking']
         print(f"Plazas totales: {total}")
-        
+
     #print('Código de Estado: ', responseParking.status_code)
     #print('Estado: ', responseParking.reason)
     #print(responseParking.text)
