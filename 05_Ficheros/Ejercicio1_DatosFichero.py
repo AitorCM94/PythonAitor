@@ -35,8 +35,8 @@ fichero.close() #Cerramos el fichero. Siempre.
 #Ejemplo pintando los nombres:
 for posicion in ClientesVol:
     print(posicion.Nombre) #Podemos usar los parámetros del objeto, en este caso el Nombre.
-"""
-"""
+
+
 #Preguntar por X parámetros (en este caso Nombre, Apellidos y Id) del objeto de la posición X:
 while(True): #De esta forma siempre se ejecuta.
     posicion = input("Dime una posición: ") #Preguntamos la posición.

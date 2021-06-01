@@ -23,7 +23,7 @@ print(sumarVar(numeros[3], numeros[4]))
 #Incluida la expresión lambda en un for para sumar 10 en todos los elementos de la lista:
 for e in numeros:
     print(sumar10(e))
-#Incluida la expresión lambda en un for para sumar 10 en todos los elementos de la lista:
+#Incluida la expresión lambda en un for para sumar 2 en todos los elementos de la lista:
 for e in numeros:
     print(sumarVar(e, 2))
 

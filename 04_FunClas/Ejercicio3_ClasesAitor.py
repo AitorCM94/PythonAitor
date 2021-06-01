@@ -12,7 +12,7 @@ class ObjetoAlumno: #Creación del objeto Alumno.
         self.Apellido1 = Apellido1 #Self. siempre hace referencia a las variables de la clase.
         self.Apellido2 = Apellido2 
             
-    def getNombreCompleto (self) -> str: #No hace falta poner más argumentos por que ya los coge de la clase, que los obtiene con la función constructor.
+    def getNombreCompleto (self) -> str: #No hace falta poner argumentos por que ya los coge de la clase, que los obtiene con la función constructor.
         return print(f"{self.Nombre} {self.Apellido1} {self.Apellido2}")
 
     def getFechaNacimiento(self, fecha) -> None: #Añadiendo el argumento fecha pedimos que para usar la función devemos especificar un parámetro (fecha).
@@ -35,6 +35,7 @@ print(VarAlumno.edad())
 
 
 #------------------Pasar parámetros de manera desordenada------------------#
+"""
 #Parámetros constructor:
 def __init__(self, Nombre, Apellido1="", Apellido2) -> None: #Apellido1 podría quedar vacío.
         self.Nombre    = Nombre 
@@ -43,3 +44,4 @@ def __init__(self, Nombre, Apellido1="", Apellido2) -> None: #Apellido1 podría 
 
 #Parámetros al instanciar el objeto:
 variable = objeto(Apellido2=Mañé, Nombre=Aitor)
+"""
